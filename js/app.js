@@ -27,7 +27,7 @@
       var chimeraNotFave = document.getElementById("chimera");
       chimeraNotFave.remove();
       var newA = document.createElement("a");
-      newA.innerHTML = '<a class="waves-effect waves-light right" id="chimera" title="Twitter [CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons" ><img width="32" alt="Twemoji 1f49c" src="<a class="waves-effect waves-light right" id="chimera" title="Twitter [CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons" ><img width="32" alt="Twemoji 1f49c" src="./Images/purpleHeart.png"/></a>';
+      newA.innerHTML = '<a class="waves-effect waves-light right" id="chimera" href="./chimera.html" title="Twitter [CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons" ><img width="32" height="32" alt="Twemoji 1f49c"  src="./Images/Emojione_1F49C.svg.png"/></a>';
       parent.appendChild(newA);
 
 
