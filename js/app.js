@@ -28,7 +28,6 @@ if (!ON_INDEX) {
   monsterFave = stringToBoolean(monsterFave);
 
 
-  //var chimeraParent = document.getElementById("Chimera_img");
   var firstTime = localStorage.getItem("firstTime");
   firstTime = stringToBoolean(firstTime);
 
