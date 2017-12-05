@@ -1,34 +1,114 @@
-  $(document).ready(function() {
+/*  $(document).ready(function() {
 
     $(".button-collapse").sideNav();
 
+  });
 
+  */
+
+
+var monsterFave = localStorage.getItem("monster");
+monsterFave = stringToBoolean(monsterFave);
+
+
+if (ON_INDEX) {
+  localStorage.removeItem("firstTime");
+  localStorage.setItem('firstTime', true);
+
+  if (monsterFave) {
+    let hidden = document.querySelector(".hide");
+    hidden.classList.toggle("hide");
+
+  }
+}
+
+if (!ON_INDEX) {
+
+  monsterFave = localStorage.getItem("monster");
+  monsterFave = stringToBoolean(monsterFave);
+
+
+  //var chimeraParent = document.getElementById("Chimera_img");
+  var firstTime = localStorage.getItem("firstTime");
+  firstTime = stringToBoolean(firstTime);
+
+
+  if (firstTime) {
+
+    localStorage.setItem('firstTime', false);
+    firstTime = false;
+
+    if (monsterFave) {
+
+      let hidden = document.querySelector(".hide");
+      hidden.classList.toggle("hide");
+      hidden.classList.toggle("unhide");
+      let visible = document.querySelector(".unhide");
+      visible.classList.toggle("unhide");
+      visible.classList.toggle("hide");
+
+    }
+
+  }
+
+}
+
+var monsterList = document.getElementsByClassName('monsters');
+
+for (var i = 0; i < monsterList.length; i++) {
+
+  monsterList[i].addEventListener("click", function() {
+
+    if (monsterFave) {
+      monsterFaveToUnfav();
+    } else {
+      monsterUnfavToFave();
+    }
 
   });
 
-  document.getElementById('chimera').addEventListener("click", function() {
+}
 
 
+function stringToBoolean(myString) {
 
-    var fave = localStorage.getItem("chimera");
-    var parent = document.getElementById("Chimera_img");
+  var myBoolean = false;
 
-    if (fave === true) {
-      localStorage.setItem("chimera", "false");
-      var chimeraFave = document.getElementById("chimera");
-      chimeraFave.remove();
-      var newAnchor = document.createElement("a");
-      newAnchor.innerHTML = '<a class="btn-floating halfway-fab waves-effect waves-light purple" id="chimera"><i class="material-icons" >favorite</i></a>';
-      parent.appendChild(newAnchor);
+  switch (myString) {
+    case "true":
+      myBoolean = true;
+      break;
+    case "false":
+      myBoolean = false;
+      break;
+    default:
+      myBoolean = false;
+      break;
+  }
 
+  return myBoolean;
+}
 
-    } else
-      localStorage.setItem("chimera", "true");
-      var chimeraNotFave = document.getElementById("chimera");
-      chimeraNotFave.remove();
-      var newA = document.createElement("a");
-      newA.innerHTML = '<a class="waves-effect waves-light right" id="chimera" href="./chimera.html" title="Twitter [CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons" ><img width="32" height="32" alt="Twemoji 1f49c"  src="./Images/Emojione_1F49C.svg.png"/></a>';
-      parent.appendChild(newA);
+function monsterFaveToUnfav() {
+  localStorage.setItem('monster', false);
+  monsterFave = false;
+  let hidden = document.querySelector(".hide");
+  hidden.classList.toggle("hide");
+  hidden.classList.toggle("unhide");
+  let visible = document.querySelector(".unhide");
+  visible.classList.toggle("unhide");
+  visible.classList.toggle("hide");
 
+}
 
-  });
+function monsterUnfavToFave() {
+  localStorage.setItem('monster', true);
+  monsterFave = true;
+  let hidden = document.querySelector(".hide");
+  hidden.classList.toggle("hide");
+  hidden.classList.toggle("unhide");
+  let visible = document.querySelector(".unhide");
+  visible.classList.toggle("unhide");
+  visible.classList.toggle("hide");
+
+}
